@@ -1,0 +1,203 @@
+.body>.video-main{
+    width: 100%;
+    min-height:766px;
+    border-radius:4px;
+    box-sizing:border-box;
+    padding:10PX 10PX;
+    background-color:#fff;
+    box-sizing:border-box;
+}
+.body>.video-main>.video{
+    width:100%;
+    height:558px;
+    min-height:700px;
+    padding:1%;
+    box-sizing:border-box;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:flex-start;
+    overflow:auto;
+}
+.body>.video-main>.video>div{
+    width:22%;
+    height:300px;
+    position:relative;
+    margin-right:1%;
+    cursor:pointer;
+    box-sizing:border-box;
+    transition:1s;
+}
+.body>.video-main>.video>div>.con{
+    width:100%;
+    height:140px;
+    border: 1px solid #00a1d6;
+    border-radius:4px;
+}
+.body>header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:relative;
+} 
+.body>header>.nav{
+    width:248px;
+    display:flex;
+    align-items:center;
+}
+.body>header>div>button{
+    width:40px;
+    height:100%;
+    border:0;
+    outline:none;
+    background-color:#f45a8d;
+    border-radius:4px;
+}
+.body>header>div>button>i{
+    color:#fff;
+}
+.body>header>div>h2{
+    display:inline-block;
+    margin-left:10px;
+    height:40px;
+    cursor:pointer;
+    color:#f45a8d;
+}
+.body>header>section{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    width:50%;
+    position:absolute;
+    top:0;
+    left:28%;
+    z-index:1;
+}
+.body>header>section>div:first-child{
+    width:100%;
+    height:32px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.body>header>section>div>i{
+    margin-left:10px;
+    color:#00b5e5;
+    cursor:pointer;
+}
+.body>header>section>div>i:hover{
+    color:#fb7299;
+}
+.body>header>section>.sea{
+    width:300px;
+    height:200px;
+    background-color:rgba(255,157,210,0.4);
+    border-radius:4px;
+}
+.body>header>section>.sea>p{
+    width:100%;
+    height:32px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.body>header>section>.sea>p>button{
+    width:60px;
+    height:80%;
+    margin-left:14px;
+    background-color:#00b5e5;
+    color:#fff;
+    border:0;
+    border-radius:4px;
+    cursor:pointer;
+}
+.body>header>section>.sea>p>button:hover{
+    background-color:#fff;
+    color:#fb7299;
+    border:1px solid #fb7299;
+}
+.body>header>section>.sea>ul{
+    list-style:none;
+    width:100%;
+    height:164px;
+    overflow:auto;
+}
+.body>header>section>.sea>ul>li{
+    height:32px;
+    box-sizing:border-box;
+    padding:2px 6px;
+    cursor:pointer;
+}
+.body>header>section>.active{
+    display:none;
+}
+.body>header>section>div>input{
+    width:200px;
+    height:30px;
+    border:0;
+    border-radius:4px;
+    box-sizing:border-box;
+    padding:2px 6px;
+    color:#e3b43d;
+    outline:#fb7299;
+}
+.body>.video-main>.video>div>.left{
+    left:0;
+    padding-left:1%;
+}
+.body>.video-main>.video>div>.right,.body>.video-main>.video>div>.left{
+    width:30%;
+    position:absolute;
+    bottom:20%;
+    display:flex;
+    height:16%;
+    color:#00a1d6;
+    overflow:hidden;
+	text-overflow:ellipsis;
+	-webkit-line-clamp:1;
+	-webkit-box-orient: vertical;
+    box-sizing:border-box;
+    display:flex;
+    justify-content:start;
+    align-items:center;
+}
+.body>.video-main>.video>div>.right{
+    justify-content:flex-end;
+    right:0;
+    padding-right:1%;
+}
+.body>.video-main>.video>div>.buttom{
+    width:100%;
+    height:20%;
+    text-align:center;
+    overflow:hidden;
+	text-overflow:ellipsis;
+	-webkit-line-clamp:1;
+	-webkit-box-orient: vertical;
+    display: -webkit-box;
+    box-sizing:border-box;
+}
+.body>.video-main>.page{
+    width:500px;
+    height:60px;
+    /* border:1px solid red; */
+    display:flex;
+    align-items:center;
+}
+.body>.video-main>.page>button{
+    width:100px;
+    height:40px;
+    border:0;
+    border:1px solid #f25d8e;
+    color:#f25d8e;
+    border-radius:4px;
+    box-sizing:border-box;
+    margin:0 10px;
+    cursor:pointer;
+    outline:none;
+}
+.body>.video-main>.page>button:hover{
+    background-color:#f25d8e;
+    color:#fff;
+}
+

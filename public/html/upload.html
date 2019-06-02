@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>视频上传页面</title>
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/upload.css">
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/upload.js"></script>
+</head>
+<body>
+        <section class='main' id='main'>
+                <aside class="asi" :style="asi">
+                    <header :style="asi_hu">
+                        <div>头像</div>
+                        <h5>用户名</h5>
+                    </header>
+                    <ul :style="asi_hu"><li>我的视频</li>
+                    <li>我的好友</li>
+                    <li>个人资料</li>
+                    <li>我的收藏</li>
+                    <li>我的评论</li>
+                    <li>我的订阅</li></ul>
+                </aside>
+                <section class="body" :style="body">
+                <header><button @click='work'>按钮</button><h2><i class="fa fa-audio-description fa-1x" aria-hidden="true"></i> 视频教学系统</h2><div><div>我的视频</div><div>我的消息</div><div>退出登录</div></div></header>
+                <div class="video-main"> 
+                <div class="upload" id="upload">
+                    <div><img src="http://127.0.0.1:5050/images/adv/adv1.png" alt=""></div>
+                    <div>
+                            <form action="http://127.0.0.1:5050/video/upload" method="post" enctype="multipart/form-data">
+                                <input type="file" name="mypic" placeholder="啊啊" id="up" >
+                                <input type="button" value="文件上传" @click="go">
+                            </form>
+                            <div class="footer">
+                                <div><span @mouseover="actshow(1)" @mouseout="actshow(2)">禁止发布的内容</span>
+                                    <span @mouseover="actshow(3)" @mouseout="actshow(4)">视频大小</span>
+                                    <span @mouseover="actshow(5)" @mouseout="actshow(6)">视频格式</span></div>
+                                <p class="p1" :class="{active:act1}">裸露和色情内容 关于暴力 <br>有危害性或危险内容</br>
+                                    个人隐私 </br>恶意冒充他人 </br>人身攻击 </br>垃圾内容
+                                </p>
+                                <p class="p2" :class="{active:act2}">
+                                    系统允许上传的视频上限为50m<br/>
+                                    视频内容最长为1小时
+                                </p>
+                                <p class="p3" :class="{active:act3}">视频推荐上传的格式为 mp4 flv</br>其他允许上传的格式为avi rmvb</p>
+                                <div>上传视频，即表示您已同意 <a>用户协议</a> ，请勿上传色情，反动等违法视频。</div>
+                            </div>
+                    </div>
+                </div>
+                </div>
+                </section>
+            </section>
+</body>
+
+</html>

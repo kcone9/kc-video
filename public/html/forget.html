@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>忘记密码</title>
+    <link rel="stylesheet" href="./css/forget.css">
+    <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+</head>
+
+<body>
+    <div class="back" id="forget">
+        <div></div>
+        <div class="header">
+            <h2 class="title"><i class="fa fa-audio-description fa-1x" aria-hidden="true"></i> 视频教学系统</h2>
+            <div class="hr">
+                <!--a href="./index.html">登录</a-->&nbsp;
+                <a href="">系统简介</a>&nbsp;|&nbsp;
+                <a href="">联系电话:18289588240</a>&nbsp;
+                <a href=""></a></div>
+        </div>
+        <div class="back1"></div>
+        <div class="back2">
+            <div>
+                ©2019 Meizu Telecom Equipment Co., Ltd. All rights reserved.琼ICP备13003602号
+                合字B2-20170010 营业执照 法律声明 琼公网安备 44049102496009 号 </div>
+        </div>
+        <div id="register">
+            <form class="form">
+                <div><span>用户名</span> <input type="text" v-model='user' placeholder="请输入用户名"> <i :class="[userc, users]"
+                        aria-hidden="true"></i></div>
+                <div><span>手机号</span> <input type="number" v-model='phone' placeholder="请输入绑定的手机号"><i
+                        :class="[phonec,phones]" aria-hidden="true"></i></div>
+                <div><span>邮箱</span> <input type="text" v-model='email' placeholder="请输入绑定的邮箱"><i
+                        :class='[emails,emailc]'></i></div>
+                <button @click="go($event,'forget')">确认</button>
+                <div><a href="./index.html">返回登录页</a><a href="./register.html">返回注册页</a></div>
+            </form>
+
+        </div>
+        <section :class="{active:act}">
+            <div>
+                <h3>信息正确！</h3>
+                <div><span>新密码</span><input type="password" v-model="pass"><i :class="[passc,passs]"></i></div>
+                <div><span>确认密码</span><input type="password" v-model="pass2"><i :class="[pass2c,pass2s]"></i></div>
+                <button @click="go($event,'pass')">确定</button>
+            </div>
+        </section>
+    </div>
+</body>
+<script src="js/forget.js"></script>
+
+</html>

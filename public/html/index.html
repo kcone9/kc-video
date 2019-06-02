@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>视频教学系统</title>
+    <link rel="stylesheet" href="http://127.0.0.1:5050/html/css/index.css">
+    <link rel="stylesheet" href="http://127.0.0.1:5050/html/css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="http://127.0.0.1:5050/html/js/vue.js"></script>
+    <script src="http://127.0.0.1:5050/html/js/axios.min.js"></script>
+</head>
+<body>
+    <div class="back" id="app">
+        <div></div>
+        <div class="header">
+            <h2 class="title"><i class="fa fa-audio-description fa-1x" aria-hidden="true"></i> 视频教学系统</h2>
+            <div class="hr"> 
+            <!--a href="http://127.0.0.1:5050/html/register.html">注册</a-->&nbsp;
+            <a href="">系统简介</a>&nbsp;|&nbsp;
+            <a href="">联系电话:18289588240</a>&nbsp;
+            <a href=""></a></div>
+        </div>
+        <div class="back1"></div>
+        <div class="back2"><div>
+            ©2019 Meizu Telecom Equipment Co., Ltd. All rights reserved.琼ICP备13003602号 
+            合字B2-20170010 营业执照 法律声明  琼公网安备 44049102496009 号 </div></div>
+        <div id='login'><!--div >账户登录</div-->
+        <form>
+            <div class="user"><div><i class="fa fa-user fa-2x" aria-hidden="true"></i></div><input type="text" v-model="name"></div>
+            <div class="pass"><div><i class="fa fa-lock fa-2x" aria-hidden="true"></i></div> <input type="password" v-model="pass"></div>
+            <button id='btn' @click="go($event)">登录</button>
+            <div><a href="http://127.0.0.1:5050/html/forget.html">忘记密码</a><a href="http://127.0.0.1:5050/html/register.html">注册</a></div>
+        </form>
+        </div>
+    </div>
+    <!--div class="rail"><div>
+        <ul class="bar" style="margin-left:0;">
+            <li><img src="./images/index/bar/bar1.jpg" alt=""></li>
+            <li><img src="./images/index/bar/bar2.jpg" alt=""></li>
+            <li><img src="./images/index/bar/bar3.jpg" alt=""></li>
+        </ul>
+        <ul class="list">
+                <li value="0" class="active"></li>
+                <li value="1"></li>
+                <li value="2"></li>
+            </ul>
+    </div-->
+</div>
+<script src="http://127.0.0.1:5050/html/js/index.js"></script>
+</body>
+</html>

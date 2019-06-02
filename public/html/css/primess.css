@@ -1,0 +1,249 @@
+.body>.video-main>.heade{  
+    height:34px;
+    display:flex;
+    align-items:center;
+    border-radius:10px;
+    background-color:#fff;
+    width:90%;
+    margin:0 auto;
+    padding:4px 16px;
+    box-sizing:border-box;
+}
+.body>.video-main>.heade>p{
+    color:#00a0d8;
+}
+.body>.video-main>.heade,.video-main>.pribod{
+    width:90%;
+    margin:0 auto;
+    padding:4px 16px;
+    box-sizing:border-box;
+}
+.body>.video-main>.active{
+    display:none;
+}
+.video-main>.pribod{
+    margin-top:20px;
+    height:500px;
+}
+.pribod>button{
+    width:100px;
+    height:40px;
+    background-color:#fb7299;
+    border:0;
+    border-radius:4px;
+    display:block;
+    margin:0 auto;
+    cursor:pointer;
+}
+.pribod>table{
+    width:70%;
+    height:200px;
+    table-layout:fixed;
+    margin:0 auto;
+    padding-bottom:20px;
+}
+.pribod>table>tbody>tr>.tbrig{
+    text-align:right;
+    width:15%;
+}
+.pribod>table>tbody>tr>td>.birth,.pribod>table>tbody>tr>td>textarea {
+    border:1px solid #f45a8d;
+    border-radius:4px;
+}
+.pribod>table>tbody>tr>td>textarea{
+    box-sizing:border-box;
+    padding:8px 10px;
+}
+.pribod>table>tbody>tr>td>span{
+    margin: 0 10px;
+}
+.pribod>table>tbody>tr>td>span:last-child{
+    color:red;
+    font-size:13px;
+}
+.pribod>table>tbody>tr{
+    margin-bottom:10px;
+}
+.pribod>table>tbody>tr>td:not(.tbrig){
+    padding-left:2%;
+}
+.pribod>table>body>tr:nth-child(2)>td:first-child{
+    text-align:top;
+}
+/*我的头像*/
+.pribod1{
+    height:500px;
+    width:90%;
+    margin:0 auto;
+    margin-top:20px;
+}
+.pribod1>form{
+    width:100%;
+    margin:0 auto;
+    padding-top:50px;
+}
+.pribod1>form>p{
+    width:80%;
+    color:#99a2aa;
+    margin:20px auto;
+    text-align:center;
+}
+.pribod1>form>input{
+    width:140px;
+    height:40px;
+    border:0;
+    margin:0 auto;
+    display:block;
+    background-color:#fb7299;
+    border-radius:4px;
+    cursor:pointer;
+}
+.pribod1>form>div{
+    width:56%;
+    height:200px;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+    position:relative;
+    z-index:1;
+}
+.pribod1>form>div>input{
+    position:absolute;
+    border:1px solid red;
+    width:200px;
+    height:200px;
+    background-color:transparent;
+    opacity:0;
+    cursor:pointer;
+}
+.pribod1>form>div>input:hover .pribod1>form>div>.img{
+    background-color:#a9aeb5;
+}
+.pribod1>form>div>.img{
+    border-radius:4px;
+    width:200px;
+    height:200px;
+    display:flex;
+    background-color:#c1c5ca;
+    cursor:pointer;
+    justify-content:center;
+    align-items:center;
+    transition:1s;
+}
+.pribod1>form>div>.img>i{
+    color:#99a2aa;
+}
+.pribod1>form>div>.myimg{
+    width:200px;
+    height:200px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background-color:#fff;
+    border-radius:4px;
+}
+.pribod1>form>div>.myimg>p{
+    color:black;
+    background-color:#fff;
+    margin-top:6px;
+}
+.pribod1>form>div>.myimg>img{
+    width:100px;
+    height:100px;
+    display:block;
+    border-radius:50%;
+}
+.pribod2{
+    padding-top:20px;
+    height:500px;
+    width:90%;
+    margin:0 auto;
+    margin-top:20px;
+}
+.pribod2>form{
+    width:90%;
+    height:300px;
+    margin:0 auto;
+    padding:10px 0;
+    box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:center;
+    background-image:url(http://127.0.0.1:5050/images/index/backpass.jpg);
+    border-radius:4px;
+}
+.pribod2>form>p{
+    color:#99a2aa;
+    font-size:18px;
+}
+.pribod2>form>input{
+    width:314px;
+    height:38px;
+    outline:none;
+    border-radius:8px;
+    border:0;
+    padding:0 10px;
+    -moz-outline-radius: 8px;
+}
+.pribod2>form>button{
+    width:100px;
+    height:40px;
+    background-color:#fb7299;
+    border-radius:4px;
+    outline:none;
+    border:0;
+    cursor:pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*
+.pribod2>ul{
+    width:90%;
+    height:100%;
+    margin:0 auto;
+    list-style-type:none;
+}
+.pribod2>ul>li{
+    width:100%;
+    height:100px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid red;
+}
+.pribod2>ul>li:first-child{
+    border-top:1px solid red;
+}
+.pribod2>ul>li>div>i{
+    margin-right:10px;
+}
+.pribod2>ul>li>div>.war{
+    color:#efa957;
+}
+.pribod2>ul>li>div>.succ{
+    color:#48bd86;
+}
+.pribod2>ul>li>p:last-child{
+    color:#00a1d6;
+    cursor:pointer;
+}*/
+
+
+
+
+
+
+
+
+

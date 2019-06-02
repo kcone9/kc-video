@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>主体页</title>
+    <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/body.css">
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+</head>
+<body>
+    <section class='main' id='main'>
+        <aside class="asi" :style="asi">
+            <header :style="asi_hu">
+                <div><img :src="user[3]" alt=""></div>
+                <h5>{{user[0]}}</h5>
+            </header>
+            <ul :style="asi_hu">
+                <li v-for="(item,i) of publist" :key="i">
+                    <button @click="items(i,$event)">{{item.title}}</button>
+                    <div class="container" :class="{tainer:item.cb}">
+                        <button v-if="item.s.length>=1" @click="jump(i,0)">{{item.s[0]}}</button>
+                        <button v-if="item.s.length>=2" @click="jump(i,1)">{{item.s[1]}}</button>
+                        <button v-if="item.s.length>=3" @click="jump(i,2)">{{item.s[2]}}</button>
+                    </div>
+                </li>
+            </ul>
+        </aside>
+        <section class="body" :style="body">
+            <header>
+                <div class="nav"><button @click='work($event)'><i class="fa fa-bars" aria-hidden="true"></i></button>
+                    <h2 @click="bodys('body')" title="刷新"><i class="fa fa-audio-description fa-1x"
+                            aria-hidden="true"></i>视频教学系统</h2>
+                </div>
+                <section @mouseleave.self="fo($event,0)" @mouseenter.self="fo($event,1)">
+                    <div><input type="search" name="" id="" v-model="seavalue" @keyup.13="search($event,'any')"><i class="fa fa-search fa-1x"
+                            aria-hidden="true" @click="search($event,'any')" ></i></div>
+                    <div class="sea" :class="{active:searchs}">
+                        <p>搜索分类:<button @click="search($event,'java')">java</button><button
+                                @click="search($event,'python')">python</button><button
+                                @click="search($event,'php')">php</button></p>
+                        <ul>
+                            <li @click="jumpsea($event,i)" v-for="(item,i) of sea">{{item.title}}</li>
+                        </ul>
+                    </div>
+                </section>
+                <div>
+                    <div @click="login(1)">{{user[0]}}</div>
+                    <div @click="login(0)">退出登录</div>
+                </div>
+            </header>
+            <div class="video-main">
+                <div class="video">
+                    <div v-for='(item,i) of list' :key='i' :style="vid"><img :src="item.img" alt="" class="con"
+                            @click="myvideo(i)">
+                        <div class="left">{{item.name}}</div>
+                        <div class="right">{{item.play}}</div>
+                        <div class="buttom">{{item.title}}</div>
+                    </div>
+                </div>
+                <div class="page"><button @click="bodys('prev',$event)">上一页</button><button
+                        @click="bodys('next',$event)">下一页</button></div>
+            </div>
+        </section>
+    </section>
+    <script src="js/body.js"></script>
+</body>
+
+</html>

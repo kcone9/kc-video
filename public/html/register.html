@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用户注册</title>
+    <link rel="stylesheet" href="./css/register.css">
+    <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+</head>
+<body>
+<div id="good"></div>
+<div class="back">
+    <div></div>
+    <div class="header">
+        <h2 class="title"><i class="fa fa-audio-description fa-1x" aria-hidden="true"></i> 视频教学系统</h2>
+             <div class="hr"> 
+                <!--a href="./index.html">登录</a-->&nbsp;
+                <a href="">系统简介</a>&nbsp;|&nbsp;
+                <a href="">联系电话:18289588240</a>&nbsp;
+                <a href=""></a></div>
+            </div>
+            <div class="back1"></div>
+     <div class="back2"><div>
+                ©2019 Meizu Telecom Equipment Co., Ltd. All rights reserved.琼ICP备13003602号 
+                合字B2-20170010 营业执照 法律声明  琼公网安备 44049102496009 号 </div></div>
+         <div id="register">
+            <form  class="form" >
+                <div><span>用户名</span> <input type="text" v-model='user' placeholder="用户名长度3到8位字符"> <i :class="[userc, users]" aria-hidden="true"></i></div>
+                <div><span>密码</span> <input type="password" v-model='pass' placeholder="密码长度8至16位字母和数字"><i :class="[passc, passs]"></i></div>
+                <div><span>确认密码</span><input type="password" placeholder="再输入一次密码" v-model="pass2"> <i :class="[pass2c, pass2s]"></i></div>
+                <div><span>手机号</span> <input type="number" v-model='phone' placeholder="请输入手机号码"><i :class="[phonec,phones]" aria-hidden="true"></i></div>
+                <div><span>邮箱</span> <input type="text" v-model='email' placeholder="请输入正确邮箱格式"><i :class='[emails,emailc]'></i></div>
+                <button @click='go($event)'>登陆</button>
+                <div><a href="./index.html">返回登录页</a></div>
+        </form>
+    </div>
+</div>
+<!--div class="rail"><div>
+    <ul class="bar" style="margin-left:0;">
+        <li><img src="./images/index/bar/bar1.jpg" alt=""></li>
+        <li><img src="./images/index/bar/bar2.jpg" alt=""></li>
+        <li><img src="./images/index/bar/bar3.jpg" alt=""></li>
+    </ul>
+        <ul class="list">
+            <li value="0" class="active"></li>
+            <li value="1"></li>
+            <li value="2"></li>
+        </ul>
+    </div>
+</div-->
+</body>
+<script src="js/register.js"></script>
+</html>

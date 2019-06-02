@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>管理员</title>
+    <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/echarts.min.js"></script>
+</head>
+<body>
+    <section class='main' id='main'>
+        <aside class="asi" :style="asi">
+            <header :style="asi_hu">
+                <div><img :src="user[3]" alt=""></div>
+                <h5>{{user[0]}}</h5>
+            </header>
+            <ul :style="asi_hu">
+            <li v-for="(item,i) of list" :key="i">
+                <button @click="items(i,$event)" >{{item.ti}}</button>
+                <div class="container" :class="{tainer:item.cb}">
+                <button v-if="item.s.length>=1" @click="jump(i,0)">{{item.s[0]}}</button>
+                <button v-if="item.s.length>=2" @click="jump(i,1)">{{item.s[1]}}</button>
+                <button v-if="item.s.length>=3" @click="jump(i,2)">{{item.s[2]}}</button>
+            </div></li>
+            </ul>
+        </aside>
+        <section class="body" :style="body">
+        <header><button @click='work'><i class="fa fa-bars" aria-hidden="true"></i></button><h2 @click="bodys('true')"><i class="fa fa-audio-description fa-1x" aria-hidden="true"></i> 视频教学系统</h2><div><div @click="login(1)"><i class="fa fa-diamond" aria-hidden="true"></i> {{user[0]}}</div><div @click="login(0)">注销登录</div></div></header>
+        <div class="video-main"> 
+                <div class="heade" :class="{active:admin[0].ad}">
+                        <p><i class="fa fa-ellipsis-v" aria-hidden="true"></i> 系统概况</p>
+                        <!--p><input type="text" placeholder="搜索" v-model="search"><i class="fa fa-search" aria-hidden="true" @click="mouse('search')"></i></p-->
+                </div>
+                <div class="pribod1" :class="{active:admin[0].ad}">
+                        <ul class="info"><li><div><p></p></div><div><p> <i class="fa fa-play-circle" aria-hidden="true"></i>视频发布总数</p><p>{{index[0]}}</p></div></li>
+                            <li><div><p></p></div><div><p><i class="fa fa-user-circle-o" aria-hidden="true"></i>用户数</p><p>{{index[1]}}</p></div></li>
+                            <li><div><p></p></div><div><p><i class="fa fa-play" aria-hidden="true"></i>视频播放量</p><p>{{index[2]}}</p></div></li>
+                            <li><div><p></p></div><div><p><i class="fa fa-youtube-play" aria-hidden="true"></i>视频互动总数</p><p>{{index[3]}}</p></div></li>
+                            <li><div><p></p></div><div><p><i class="fa fa-eye" aria-hidden="true"></i>系统访问量</p><p>{{index[4]}}</p></div></li>
+                            <li><div><p></p></div><div><p><i class="fa fa-desktop" aria-hidden="true"></i>待审核视频</p><p>{{index[5]}}</p></div></li>
+                        <div id="echarts" style="width:90%;height:310px;margin-top:20px;background-color:#fff;box-sizing:border-box;padding:10px 10px;border-radius:4px;" ></div>
+                </div>
+                <div class="heade" :class="{active:admin[1].ad}">
+                        <p><i class="fa fa-ellipsis-v" aria-hidden="true"></i> 所有视频</p>
+                        <p><input type="text" placeholder="搜索" v-model="search"><i class="fa fa-search" aria-hidden="true" @click="bodys('search')"></i></p>
+                </div>
+                <div class="pribod2" :class="{active:admin[1].ad}">
+                        <div v-for="(item,i) of allvid"><div class="play"><span>{{item.name}} </span><span>{{item.times}}</span><i class="fa fa-trash-o fa-1x" aria-hidden="true" @click="bodys('false',item.vid)"></i></div><img :src="item.img" alt="" @click="playvids($event,item.times,item.name,item.title,item.video)"><p>{{item.title}}</p></div>
+                        <div class="page"><button @click="bodys('prev',$event)">上一页</button><button @click="bodys('next',$event)">下一页</button></div>
+                </div>
+                <div class="heade" :class="{active:admin[2].ad}">
+                        <p><i class="fa fa-ellipsis-v" aria-hidden="true"></i> 挑选视频</p>
+                        <p><input type="text" placeholder="搜索用户" v-model="searchuser"><i class="fa fa-search" aria-hidden="true" @click="bodys('searchuser')"></i></p>
+                </div>
+                <div class="pribod3" :class="{active:admin[2].ad}">
+                        <ul v-if="ut">
+                            <li v-for="(item,i) of userlist"><div><img :src="item.head" alt=""><p><span>{{item.name}}</span><span>{{item.sign}}</span></p></div><div><button @click="bodys('see',item.uid,$event)">查看视频</button></div></li>
+                        </ul>
+                        <div v-if="uf" v-for="(item,i) of uvid"><div class="play"><span>{{item.name}} </span><span>{{item.times}}</span><i class="fa fa-trash-o fa-1x" aria-hidden="true" @click="bodys('false',item.vid,i)"></i></div><img :src="item.img" alt="" @click="playvids($event,item.times,item.name,item.title,item.video)"><p>{{item.title}}</p></div>
+                </div>
+                <div class="heade" :class="{active:admin[3].ad}">
+                        <p><i class="fa fa-ellipsis-v i" aria-hidden="true"></i>用户列表</p>
+                        <p><input type="text" placeholder="搜索用户" v-model="pinput"><i class="fa fa-search" aria-hidden="true" @click="bodys('searchuser','puser')"></i></p>
+                </div>
+                <div class="pribod4" :class="{active:admin[3].ad}">
+                        <ul>
+                            <li v-for="(item,i) of puser"><div><img :src="item.head" alt=""><p><span>{{item.name}}</span><span>{{item.sign}}</span></p></div><div><button @click="bodys('del',item.uid,$event,i)">删除该用户</button><button @click="ban('ban',item.uid,$event,i)">{{item.comd}}</button><button @click="ban('banvid',item.uid,$event,i)">{{item.bvidd}}</button></div></li>
+                        </ul>
+                </div>
+                <div class="heade" :class="{active:admin[4].ad}">
+                        <p><i class="fa fa-ellipsis-v i" aria-hidden="true"></i>创建新用户</p>
+                </div>
+                <div class="pribod5" :class="{active:admin[4].ad}">
+                        <table>
+                                <tbody>
+                                    <tr>
+                                    <td class="tbrig" >昵称</td>
+                                    <td><input type="text" v-model="name"></td>
+                                     </tr>
+                                     <tr>
+                                        <td class="tbrig" >密码</td>
+                                        <td><input type="password" v-model="pass"></td>    
+                                    <tr>
+                                    <tr>
+                                        <td class="tbrig" >手机</td>
+                                        <td><input type="number" v-model="phone"></td>    
+                                    <tr>
+                                    <tr>
+                                        <td class="tbrig" >邮箱</td>
+                                        <td><input type="email"  v-model="email"></td>    
+                                    <tr>
+                                    <td text-align="top" class="tbrig">我的签名</td>
+                                    <td><textarea name="my" id="" cols="28" rows="5" maxlength="80"  v-model="sign"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                    <td class="tbrig">性别</td>
+                                    <td><input name="sex" type="radio"  v-model="sex" value="1">男<input type="radio" name="sex" v-model="sex" value="0">女 <input type="radio" name="sex" value="2" v-model="sex">保密</td>
+                                    </tr>
+                                    <tr>
+                                    <td class="tbrig" >出生日期</td>
+                                    <td><input type="date"  v-model="birth"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button @click="bodys('res',1,$event)">保存</button>
+                </div>
+                <div class="heade" :class="{active:admin[5].ad}">
+                        <p><i class="fa fa-ellipsis-v i" aria-hidden="true"></i>审核表</p>
+                </div>
+                <div class="pribod6" :class="{active:admin[5].ad}">
+                    <ul>
+                        <li v-for="(item,i) of aud"><div @click="playvids($event,item.times,item.name,item.title,item.video)">
+                            <p>{{item.times}}</p></div>
+                            <div @click="playvids($event,item.times,item.name,item.title,item.video)">
+                                <img :alt="item.title" :src="item.img">
+                            </div>
+                            <div @click="playvids($event,item.times,item.name,item.title,item.video)"><p>{{item.title}}</p>
+                        <p><span></span> <span>{{item.name}}</span></p></div>
+                        <div><i  title="允许" @click="bodys('yes',item.vid,$event)">允许</i>
+                            <i @click="bodys('no',item.vid,$event,i)" title="不允许">不允许</i></div></li>
+                    </ul>
+                </div>
+                <div class="heade" :class="{active:admin[6].ad}">
+                        <p><i class="fa fa-ellipsis-v i" aria-hidden="true"></i>未通过名单</p>
+                </div>
+                <div class="pribod6" :class="{active:admin[6].ad}">
+                    <ul>
+                        <li v-for="(item,i) of rec"><div @click="playvids($event,item.times,item.name,item.title,item.video)"><p>{{item.times}}</p></div><div @click="playvids($event,items.time,item.name,item.title,item.video)"><img :src="item.img" :alt="item.title"></div><div @click="playvids($event,item.times,item.name,item.title,item.video)"><p>{{item.title}}</p>
+                            <p><span>原因：{{item.record}}</span> <span>{{item.name}}</span></p></div>
+                            <div><i  title="允许通过" @click="bodys('yes',item.vid,$event)">通过</i></div></li>
+                    </ul>
+                </div>
+                <div class="heade" :class="{active:admin[7].ad}">
+                        <p><i class="fa fa-ellipsis-v i" aria-hidden="true"></i>限制名单</p>
+                </div>
+                <div class="pribod4" :class="{active:admin[7].ad}">
+                    <ul>
+                        <li v-for="(item,i) of ulift"><div><img :src="item.head" alt=""><p><span>{{item.name}}</span><span>{{item.sign}}</span></p></div><div><button @click="bodys('uban',item.uid,$event,i)">{{item.comd}}</button><button @click="bodys('uvid',item.uid,$event,i)">{{item.bvidd}}</button></div></li>
+                    </ul>
+                </div>
+                <div class="pribod7" :class="{active:admin[8].ad}">
+                    <div><span>发布时间：{{playvid[0]}}</span><span>作者：{{playvid[1]}}</span><span>视频名称：{{playvid[2]}}</span></div>
+                    <video :src="playvid[3]" controls></video>
+                </div>
+        </div>
+        </section>
+    </section>
+    <script src="js/admin.js"></script>
+</body>
+</html>

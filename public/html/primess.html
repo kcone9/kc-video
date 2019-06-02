@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个人页</title>
+    <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/primess.css">
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+</head>
+<body>
+    <section class='main' id='main'>
+        <aside class="asi" :style="asi">
+            <header :style="asi_hu">
+                <div><img :src="user[3]" alt=""></div>
+                <h5>{{user[0]}}</h5>
+            </header>
+            <ul :style="asi_hu"><li v-for="(item,i) of list" :key="i">
+                <button @click="items(i,$event)" >{{item.title}}</button>
+                <div class="container" :class="{tainer:item.cb}">
+                <button v-if="item.s.length>=1" @click="jump(i,0)">{{item.s[0]}}</button>
+                <button v-if="item.s.length>=2" @click="jump(i,1)">{{item.s[1]}}</button>
+                <button v-if="item.s.length>=3" @click="jump(i,2)">{{item.s[2]}}</button>
+            </div></li></ul>
+        </aside>
+        <section class="body" :style="body">
+        <header><button @click='work'><i class="fa fa-bars" aria-hidden="true"></i></button><h2 @click="bodys()" title="回到主页"><i class="fa fa-audio-description fa-1x" aria-hidden="true"></i> 视频教学系统</h2><div><div @click="login(1)" title="用户名">{{user[0]}}</div><div @click="login(0)">退出登录</div></div></header>
+        <div class="video-main">
+            <div class="heade" :class="{active:active[0].act}">
+                <p><i class="fa fa-ellipsis-v" aria-hidden="true"></i> 我的信息</p>
+            </div>   
+            <div class="pribod" :class="{active:active[0].act}">
+                <table>
+                    <tbody>
+                        <tr>
+                        <td class="tbrig" >昵称</td>
+                        <td><span>{{user[0]}}</span> <span>{{users}}</span></td>
+                         </tr>
+                        <tr>
+                        <td text-align="top" class="tbrig">我的签名</td>
+                        <td><textarea name="my" id="" cols="28" rows="5" maxlength="80" v-model="sign"></textarea></td>
+                        </tr>
+                        <tr>
+                        <td class="tbrig">性别</td>
+                        <td><input name="sex" type="radio" v-model="sex" value="1">男<input type="radio" name="sex" v-model="sex" value="0">女 <input type="radio" name="sex" v-model="sex" value="2">保密</td>
+                        </tr>
+                        <tr>
+                        <td class="tbrig " >出生日期</td>
+                        <td><input class="birth" type="date" v-model="birth"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button @click="save">保存</button>
+            </div>
+            <!--我的头像-->
+            <div class="heade" :class="{active:active[1].act}">
+                <p><i class="fa fa-ellipsis-v" aria-hidden="true"></i> 我的信息</p>
+            </div>   
+            <div class="pribod1" :class="{active:active[1].act}">
+                <form>
+                    <div>
+                        <input type="file" name="mypic" id="img"><div class="img"><i class="fa fa-picture-o fa-5x" aria-hidden="true"></i></div> <div class="myimg"> <img :src="user[3]" alt=""> <p>当前头像</p></div>
+                    </div>
+                    <p>请选择图片上传:大小 150 * 150 像素 支持jpg、png等格式，图片需小于500k</p>
+                    <input type="button" value="更新" @click="go($event)">
+                </form>
+            </div>
+            <!--账号安全-->
+            <div class="heade" :class="{active:active[2].act}">
+                    <p><i class="fa fa-ellipsis-v" aria-hidden="true"></i> 账号安全</p>
+            </div> 
+            <div class="pribod2" :class="{active:active[2].act}">
+                <!--ul>
+                    <li><div><i class="fa fa-check-circle-o succ" aria-hidden="true"></i>设置密码</div><p>密码安全级别：<span>高</span></p> <p>修改密码</p></li>
+                    <li><div><i class="fa fa-exclamation-circle war" aria-hidden="true"></i>保密问题</div><p>未设置保密问题<span></span></p> <p>更换密保</p></li>
+                    <li><div><i class="fa fa-exclamation-circle war" aria-hidden="true"></i>绑定qq号</div><p>未绑定qq号<span></span></p> <p>绑定q号</p></li>
+                </ul-->
+                <form>
+                    <p>请输入原密码:</p> <input type="password" v-model="pass1">
+                    <p>请输入新密码:</p>
+                    <input type="password" v-model="pass2">
+                    <button @click="mod($event)">确定修改</button>
+                </form>
+
+            </div>
+        </div>
+        </section>
+    </section>
+    <script src="js/primess.js"></script>
+</body>
+</html>
