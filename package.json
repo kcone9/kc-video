@@ -33,6 +33,6 @@
     "ws": "^7.0.0"
   },
   "devDependencies": {
-    "webpack": "^4.30.0"
+    "webpack": "^5.75.0"
   }
 }
